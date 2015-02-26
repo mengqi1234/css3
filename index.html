@@ -1,0 +1,1129 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="some css3 animation">
+    <meta name="keywords" content="HTML, CSS, JS, JavaScript, jQuery, front-end, frontend, web development">
+    <meta name="author" content="Nicole">
+    <meta name="format-detection" content="telephone=no" />
+    <title>CSS3-Animate</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="../../lib/css/google-code-prettify.css"/>
+    <link rel="stylesheet" href="css/index.css"/>
+    <!--[if lt IE 9]>
+    <script src="../../lib/js/html5.js"></script>
+    <![endif]-->
+
+    <!-- icons -->
+    <link rel="icon" href="../../lib/icon/favicon.ico"/>
+    <link rel="shortcut icon" href="../../lib/icon/favicon.ico"/>
+
+</head>
+<body>
+
+<nav id="navbar">
+    <div class="inner">
+        <!--<div class="navbar-link"><a href="#">Nicole_Site</a></div>-->
+        <div class="navbar-header">
+            <button id="toggleBtn" class="navbar-header-toggle touch" type="button" call="app.toggle(this,'toggleNav')">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="javascript:;" class="navbar-header-brand" goto="#home">CSS3-ANIMATION</a>
+        </div>
+        <ul class="navbar-nav hidden" id="toggleNav">
+            <li>
+                <a href="javascript:;" goto="#transform">Transform</a>
+            </li>
+            <li>
+                <a href="javascript:;" goto="#transition">Transition</a>
+            </li>
+            <li>
+                <a href="javascript:;" goto="#animation">Animation</a>
+            </li>
+            <li>
+                <a href="javascript:;" goto="#event">Event</a>
+            </li>
+            <!--<li>-->
+            <!--<a href="./script/">Script</a>-->
+            <!--</li>-->
+        </ul>
+
+    </div>
+</nav>
+<div id="content">
+<a href="javascript:;" id="backToTop" class="hidden" call="app.toTop()"></a>
+<div id="pages">
+    <div id="home" class="page">
+    <header class="masthead">
+        <div class="inner">
+            <h1>CSS3 动画</h1>
+            <p>Transform, Transition, Animation</p>
+            <p class="ver">Version 1.0.0</p>
+        </div>
+    </header>
+    <div class="notice"><div class="inner"></div> </div>
+    <div class="container">
+        <div class="inner">
+            <div class="preface">
+                <h2>前言</h2>
+                <div class="sect">
+                    <p>随着网络的发展，浏览器具有更强的渲染更高级代码的能力。
+                        本文着重介绍变形(transform)、转换(transition)和动画(animation)CSS3动画技术。</p>
+                </div>
+            </div>
+            <hr class="half-rule">
+            <div class="row">
+                <div class="col-s1">
+                    <h3>transform</h3>
+                    <div class="sect">
+                        <p>实现了一些可用SVG实现的同样的功能，可用于内联(inline)元素和块级(block)元素。它允许我们旋转、缩放和移动元素而只需要一行CSS码代。</p>
+                    </div>
+                    <a href="javascript:;" goto="#transform">阅读详细>></a>
+                </div>
+                <div class="col-s1">
+                    <h3>transition</h3>
+                    <div class="sect">
+                        <p>涉及到CSS属性的基本的转换。就是定义和移动一个元素从它的静止状态到它的hover或者激活状态，转换可以和变形同时使用以创建一些动画。</p>
+                    </div>
+                    <a href="javascript:;" goto="#transition">阅读详细>></a>
+                </div>
+                <div class="col-s1">
+                    <h3>animation</h3>
+                    <div class="sect">
+                        <p>可以定义多个关键帧以及定义每个关键帧中元素的属性值来实现复杂的动画效果。相对于使用脚本实现的动画，其拥有更加高效的性能。</p>
+                    </div>
+                    <a href="javascript:;" goto="#animation">阅读详细>></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <div id="transform" class="page hidden">
+    <header class="overview">
+        <div class="inner">
+            <h1>Transform</h1>
+            <p>实现了一些可用SVG实现的同样的功能，可用于内联(inline)元素和块级(block)元素，允许旋转、缩放和移动元素。</p>
+        </div>
+    </header>
+    <div class="notice"><div class="inner"></div> </div>
+    <div class="container">
+        <div class="inner">
+            <div class="row">
+                <div class="col-s2">
+                    <section id="transformOrigin">
+                        <header class="page-header">
+                            <h2>transform-origin</h2>
+                            <div class="explain">
+                                <p>设置或检索对象以某个原点进行转换</p>
+                                <p>该属性提供2个参数值</p>
+                                <p>如果提供两个，第一个用于横坐标，第二个用于纵坐标</p>
+                                <p>如果只提供一个，该值将用于横坐标；纵坐标将默认为50%</p>
+                                <p>对应的脚本特性为transformOrigin</p>
+                            </div>
+                            <div class="syntax">
+                                <p>transform-origin：[&lt;percentage&gt;|&lt;length&gt;left|right] [&lt;percentage&gt;|&lt;length&gt;top|bottom]</p>
+                                <p>默认值：50% 50%，效果等同于center center</p>
+                            </div>
+                        </header>
+                        <div class="alert yellow">通过设置不同的<code>transform-origin</code>值，观察对相同角度转向<code>rotate(45deg)</code>的影响。</div>
+                        <div class="example">
+                            <div class="transf transf-origin">
+                                <div class="node touch node-brown">Original</div>
+                                <div class="node touch node-purple origin-1">20% 50%</div>
+                                <div class="node touch node-blue origin-2">0% 100%</div>
+                                <div class="node touch node-green origin-3">right top</div>
+                                <div class="node touch node-yellow origin-4">left bottom</div>
+                                <div class="node touch node-orange origin-5">100% 100%</div>
+                                <div class="node touch node-red origin-6">70% 70%</div>
+                            </div>
+                        </div>
+                <div  class="prePrtBox sign"><pre  class="prettyprint">
+-webkit-transform-origin: [percentage|length] [percentage|length];
+   -moz-transform-origin: [percentage|length] [percentage|length];
+    -ms-transform-origin: [percentage|length] [percentage|length];
+        transform-origin: [percentage|length] [percentage|length];
+                </pre></div>
+                    </section>
+                    <section id="transformRotate">
+                        <header class="page-header">
+                            <h2>rotate</h2>
+                            <div class="explain">
+                                <p>指定对象的2D rotation（2D旋转），需先有transform-origin属性的定义</p>
+                            </div>
+                            <div class="syntax"><p>rotate(&lt;angle&gt;)</p></div>
+                        </header>
+                        <div class="alert yellow">基于<code>transform-origin</code>的默认值，观察设置不同角度转向<code>rotate(&lt;angle&gt;)</code>的效果。</div>
+                        <div class="example">
+                            <div class="transf transf-rotate">
+                                <div class="node touch node-brown">Original</div>
+                                <div class="node touch node-purple rotate-1"><span>rotate</span><span>(30deg)</span></div>
+                                <div class="node touch node-blue rotate-2"><span>rotate</span><span>(-30deg)</span></div>
+                                <div class="node touch node-green rotate-3"><span>rotate</span><span>(90deg)</span></div>
+                                <div class="node touch node-yellow rotate-4"><span>rotate</span><span>(120deg)</span></div>
+                                <div class="node touch node-orange rotate-5"><span>rotate</span><span>(-120deg)</span></div>
+                                <div class="node touch node-red rotate-6"><span>rotate</span><span>(180deg)</span></div>
+                            </div>
+                        </div>
+                <div  class="prePrtBox sign">
+                    <pre  class="prettyprint">
+-webkit-transform: rotate(angle);
+   -moz-transform: rotate(angle);
+    -ms-transform: rotate(angle);
+        transform: rotate(angle);
+                    </pre></div>
+                    </section>
+                    <section id="transformScale">
+                        <header class="page-header">
+                            <h2>scale</h2>
+                            <div class="explain">
+                                <p>指定对象的2D scale（2D缩放）</p>
+                                <p>第一个参数对应X轴，第二个参数对应Y轴</p>
+                                <p>如果第二个参数未提供，则默认取第一个参数的值</p>
+                                <p>缩小：0到1直接的小数；放大：大于1的数字</p>
+                                <p>若数值为负，则翻转并按数值的绝对值相应缩放</p>
+                            </div>
+                            <div class="syntax"><p>scale(&lt;number&gt;[, &lt;number&gt;]); scaleX(&lt;number&gt;), scaleY(&lt;number&gt;)</p></div>
+                        </header>
+                        <div class="alert yellow"></div>
+                        <div class="example">
+                            <div class="transf transf-scale">
+                                <div class="node touch node-brown">Original</div>
+                                <div class="node touch node-purple scale-1"><span>scale</span><span>(.5,.8)</span></div>
+                                <div class="node touch node-blue scale-2"><span>scale</span><span>(1.5,2)</span></div>
+                                <div class="node touch node-green scale-3"><span>scaleX</span><span>(2)</span></div>
+                                <div class="node touch node-yellow scale-4"><span>scaleY</span><span>(.8)</span></div>
+                                <div class="node touch node-orange scale-5"><span>scale</span><span>(-.8,1.2)</span></div>
+                                <div class="node touch node-red scale-6"><span>scale</span><span>(1.5,-1.5)</span></div>
+                            </div>
+                        </div>
+                <div  class="prePrtBox sign"><pre  class="prettyprint">
+-webkit-transform: scale(x,y);
+   -moz-transform: scale(x,y);
+    -ms-transform: scale(x,y);
+        transform: scale(x,y);
+                </pre></div>
+                    </section>
+                    <section id="transformSkew">
+                        <header class="page-header">
+                            <h2>skew</h2>
+                            <div class="explain">
+                                <p>指定对象skew transformation（斜切扭曲）</p>
+                                <P>第一个参数对应X轴，第二个参数对应Y轴</P>
+                                <p>如果第二个参数未提供，则默认值为0</p>
+                            </div>
+                            <div class="syntax"><p>skew(&lt;angle&gt;[, &lt;angle&gt;]); skewX(&lt;angle&gt;), skewY(&lt;angle&gt;)</p></div>
+                        </header>
+                        <div class="alert yellow"></div>
+                        <div class="example">
+                            <div class="transf transf-skew">
+                                <div class="node touch node-brown">Original</div>
+                                <div class="node touch node-purple skew-1"><span>skew</span><span>(10deg,30deg)</span></div>
+                                <div class="node touch node-blue skew-2"><span>skew</span><span>(30deg,10deg)</span></div>
+                                <div class="node touch node-green skew-3"><span>skewX</span><span>(45deg)</span></div>
+                                <div class="node touch node-yellow skew-4"><span>skewY</span><span>(-45deg)</span></div>
+                                <div class="node touch node-orange skew-5"><span>skew</span><span>(-30deg,10deg)</span></div>
+                                <div class="node touch node-red skew-6"><span>skew</span><span>(30deg,-10deg)</span></div>
+                            </div>
+                        </div>
+                <div  class="prePrtBox sign"><pre  class="prettyprint">
+-webkit-transform: skew(angle,angle);
+   -moz-transform: skew(angle,angle);
+    -ms-transform: skew(angle,angle);
+        transform: skew(angle,angle);
+                </pre></div>
+                    </section>
+                    <section id="transformTranslate">
+                        <header class="page-header">
+                            <h2>translate</h2>
+                            <div class="explain">
+                                <p>指定对象的2D translation（2D平移）</p>
+                                <p>第一个参数对应X轴，第二个参数对应Y轴</p>
+                                <p>如果第二个参数未提供，则默认值为0</p>
+                            </div>
+                            <div class="syntax"><p>translate(&lt;length&gt;[, &lt;length&gt;]); translateX(&lt;length&gt;), translateY(&lt;length&gt;)</p></div>
+                        </header>
+                        <div class="alert yellow"></div>
+                        <div class="example">
+                            <div class="transf transf-translate">
+                                <div class="node touch node-brown">Original</div>
+                                <div class="node touch node-purple translate-1"><span>translate</span><span>(10px,30px)</span></div>
+                                <div class="node touch node-blue translate-2"><span>translate</span><span>(30px,10px)</span></div>
+                                <div class="node touch node-green translate-3"><span>translateX</span><span>(45px)</span></div>
+                                <div class="node touch node-yellow translate-4"><span>translateY</span><span>(-45px)</span></div>
+                                <div class="node touch node-orange translate-5"><span>translate</span><span>(-30px,10px)</span></div>
+                                <div class="node touch node-red translate-6"><span>translate</span><span>(30px,-10px)</span></div>
+                            </div>
+                        </div>
+            <div  class="prePrtBox sign"><pre  class="prettyprint">
+-webkit-transform: translate(x,y);
+   -moz-transform: translate(x,y);
+    -ms-transform: translate(x,y);
+        transform: translate(x,y);
+            </pre></div>
+                    </section>
+                    <section id="transformMatrix">
+                        <header class="page-header">
+                            <h2>matrix</h2>
+                            <div class="explain">
+                                <p>以一个含六值的(a,b,c,d,tx,ty)变换矩阵的形式指定一个2D变换.</p>
+                                <p>a, c, b, d是一个二维矩阵。</p>
+                                <p>tx, ty就是就是基于X和Y 坐标重新定位元素。</p>
+                            </div>
+                            <div class="syntax"><p>matrix(&lt;number&gt;,&lt;number&gt;,&lt;number&gt;,&lt;number&gt;,&lt;number&gt;,&lt;number&gt;)</p></div>
+                        </header>
+                        <div class="alert yellow">具体数值请参照矩阵数学原理。</div>
+                        <!--<div class="example">-->
+                        <!--<div class="transf transf-translate">-->
+                        <!--<div class="node touch node-brown">Original</div>-->
+                        <!--<div class="node touch node-purple translate-1"><span>translate</span><span>(10px,30px)</span></div>-->
+                        <!--&lt;!&ndash;<div class="node touch node-blue translate-2"><span>translate</span><span>(30px,10px)</span></div>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<div class="node touch node-green translate-3"><span>translateX</span><span>(45px)</span></div>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<div class="node touch node-yellow translate-4"><span>translateY</span><span>(-45px)</span></div>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<div class="node touch node-orange translate-5"><span>translate</span><span>(-30px,10px)</span></div>&ndash;&gt;-->
+                        <!--<div class="node touch node-red matrix"><span>matrix</span><span>(1, 0, 0, 1, 30, 30)</span></div>-->
+                        <!--</div>-->
+                        <!--</div>-->
+            <div  class="prePrtBox sign"><pre  class="prettyprint">
+-webkit-transform: matrix(a,b,c,d,tx,ty);
+   -moz-transform: matrix(a,b,c,d,tx,ty);
+    -ms-transform: matrix(a,b,c,d,tx,ty);
+        transform: matrix(a,b,c,d,tx,ty);
+            </pre></div>
+                    </section>
+                </div>
+                <div class="col-s3">
+                    <aside class="aside">
+                        <ul class="aside-nav">
+                           <li class="cur"><a href="#transformOrigin">transform-origin</a></li>
+                           <li><a href="#transformRotate">rotate</a></li>
+                           <li><a href="#transformScale">scale</a></li>
+                           <li><a href="#transformSkew">skew</a></li>
+                           <li><a href="#transformTranslate">translate</a></li>
+                           <li><a href="#transformMatrix">matrix</a></li>
+                        </ul>
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div id="transition" class="page hidden">
+    <header class="overview">
+        <div class="inner">
+            <h1>CSS3 Transition</h1>
+            <p>定义和移动一个元素从它的静止状态到它的hover或者激活状态，转换可以和变形同时使用以创建一些动画。</p>
+        </div>
+    </header>
+    <div class="notice"><div class="inner"></div> </div>
+    <div class="container">
+    <div class="inner">
+    <div class="row">
+    <div class="col-s2">
+    <section id="transitionOrg">
+        <header class="page-header">
+            <h2>transition</h2>
+            <div class="explain">
+                <p>复合属性。检索或设置对象变换时的过渡。</p>
+                <p>可以为同一元素的多个属性定义过渡效果。</p>
+                <p>对应的脚本特性为transition。</p>
+            </div>
+            <div class="syntax">
+                <p>transition：[ transition-property ] || [ transition-duration ] || [ transition-timing-function ] || [ transition-delay ]</p>
+            </div>
+        </header>
+        <div class="example">
+            <div class="transi transi-all touch">
+                <div class="node node-purple all-1">background-color, border-color, color</div>
+                <div class="node node-blue all-2">width, height, line-height</div>
+                <div class="node node-green all-3">margin-left, margin-right, margin-top, margin-bottom</div>
+                <div class="node node-yellow all-4">padding-left</div>
+                <div class="node node-orange all-5">opacity</div>
+                <div class="node node-red all-6">font-size, font-weight</div>
+            </div>
+        </div>
+        <div  class="prePrtBox sign"><pre  class="prettyprint">
+/* 设置参与过渡的属性为 all, 持续时间为 .5s, 运动算法为 ease-in-out,延迟过渡的时间为 0. */
+-webkit-transition: all .5s ease-in-out;
+   -moz-transition: all .5s ease-in-out;
+    -ms-transition: all .5s ease-in-out;
+        transition: all .5s ease-in-out;
+</pre></div>
+    </section>
+    <section id="transitionProperty">
+        <header class="page-header">
+            <h2>property</h2>
+            <div class="explain">
+                <p>检索或设置对象中的参与过渡的属性。</p>
+                <p>如果提供多个属性值，以逗号进行分隔。</p>
+                <p>对应的脚本特性为transitionProperty。</p>
+                <p>默认值为：all。默认为所有可以进行过渡的css属性。</p>
+            </div>
+            <div class="syntax"><p>transition-property：all | none | &lt;property&gt;[ ,&lt;property&gt; ]* </p></div>
+        </header>
+        <div class="example">
+            <div class="transi transi-property node-duration">
+                <!--<div class="node touch node-brown"> </div>-->
+                <div class="node touch node-purple property-1">background-color, border-color, color</div>
+                <div class="node touch node-blue property-2">width, height, line-height</div>
+                <div class="node touch node-green property-3">margin-left, margin-right, margin-top, margin-bottom</div>
+                <div class="node touch node-yellow property-4">padding-left</div>
+                <div class="node touch node-orange property-5">opacity</div>
+                <div class="node touch node-red property-6">font-size, font-weight</div>
+            </div>
+        </div>
+        <div  class="prePrtBox sign"><pre  class="prettyprint">
+/* 设置参与过渡的属性分别为 background-color, border-color, color, width, height,<br> line-height, margin, padding, opacity, font-size, font-weight */
+-webkit-transition-property: color, opacity, width, padding, background-color; //省略
+   -moz-transition-property: color, opacity, width, padding, background-color; //省略
+    -ms-transition-property: color, opacity, width, padding, background-color; //省略
+        transition-property: color, opacity, width, padding, background-color; //省略
+        </pre></div>
+    </section>
+    <section id="transitionDuration">
+        <header class="page-header">
+            <h2>duration</h2>
+            <div class="explain">
+                <p>检索或设置对象过渡的持续时间。</p>
+                <p>如果提供多个属性值，以逗号进行分隔。</p>
+                <p>对应的脚本特性为transitionDuration。</p>
+                <p>默认值：0。</p>
+            </div>
+            <div class="syntax"><p>transition-duration：&lt;time&gt;[ ,&lt;time&gt; ]*</p></div>
+        </header>
+        <div class="alert yellow">通过设置相同的<code>transition-timing-function, transition-delay</code>，观察不同<code>transition-duration</code>的效果。</div>
+        <div class="example">
+            <div class="transi transi-duration touch">
+                <!--<div class="node touch node-brown"> </div>-->
+                <div class="node node-purple duration-1">padding-right (duration:0.2s)</div>
+                <div class="node node-blue duration-2">padding-right (duration:1s)</div>
+                <div class="node node-green duration-3">padding-right (duration:3s)</div>
+
+            </div>
+        </div>
+        <div  class="prePrtBox sign"><pre  class="prettyprint">
+/*  改变持续时间为 1s  */
+-webkit-transition-duration: 1s;
+   -moz-transition-duration: 1s;
+    -ms-transition-duration: 1s;
+        transition-duration: 1s;
+        </pre></div>
+    </section>
+    <section id="transitionTimeFunc">
+        <header class="page-header">
+            <h2>timing function</h2>
+            <div class="explain">
+                <p>检索或设置对象中过渡的动画类型。</p>
+                <p>如果提供多个属性值，以逗号进行分隔。</p>
+                <p>对应的脚本特性为transitionTimingFunction。</p>
+                <p>linear：线性过渡。等同于贝塞尔曲线(0.0, 0.0, 1.0, 1.0)</p>
+                <p>ease：平滑过渡。等同于贝塞尔曲线(0.25, 0.1, 0.25, 1.0)</p>
+                <p>ease-in：由慢到快。等同于贝塞尔曲线(0.42, 0, 1.0, 1.0)</p>
+                <p>ease-out：由快到慢。等同于贝塞尔曲线(0, 0, 0.58, 1.0)</p>
+                <p>ease-in-out：由慢到快再到慢。等同于贝塞尔曲线(0.42, 0, 0.58, 1.0)</p>
+                <p>cubic-bezier(&lt;number&gt;, &lt;number&gt;, &lt;number&gt;, &lt;number&gt;)：特定的贝塞尔曲线类型，4个数值需在[0, 1]区间内</p>
+                <p>默认值：ease。</p>
+            </div>
+            <div class="syntax"><p>transition-timing-function：linear | ease | ease-in | ease-out | ease-in-out | cubic-bezier(&lt;number&gt;, &lt;number&gt;, &lt;number&gt;, &lt;number&gt;)[ ,linear | ease | ease-in | ease-out | ease-in-out | cubic-bezier(&gt;number&lt;, &lt;number&gt;, &lt;number&gt;, &lt;number&gt;) ]*</p></div>
+        </header>
+        <div class="alert yellow">通过设置相同的<code>transition-duration, transition-delay</code>，观察不同<code>transition-timing-function</code>的效果。</div>
+        <div class="example">
+            <div class="transi transi-timeFunc node-duration touch">
+                <!--<div class="node touch node-brown"> </div>-->
+                <div class="node node-purple timeFunc-ease">margin-left (ease)</div>
+                <div class="node node-blue timeFunc-ease-in">margin-left (ease-in)</div>
+                <div class="node node-green timeFunc-ease-out">margin-right (ease-out)</div>
+                <div class="node node-yellow timeFunc-ease-in-out">margin-left (ease-in-out)</div>
+                <div class="node node-orange timeFunc-linear">margin-left (linear)</div>
+                <div class="node node-red timeFunc-bzr">margin-left cubic-bezier(0.2,0.6,0.8,0.4)</div>
+            </div>
+        </div>
+        <div  class="prePrtBox sign"><pre  class="prettyprint">
+/*  等同于贝塞尔曲线cubic-bezier(0.25, 0.1, 0.25), (0.42, 0, 1.0, 1.0),<br>(0, 0, 0.58, 1.0)，(0.42, 0, 0.58, 1.0)，(0.0, 0.0, 1.0, 1.0)  */
+-webkit-transition-timing-function: ease, ease-in, ease-out, ease-in-out, linear;
+  -moz-transition-timing-function: ease, ease-in, ease-out, ease-in-out, linear;
+   -ms-transition-timing-function: ease, ease-in, ease-out, ease-in-out, linear;
+       transition-timing-function: ease, ease-in, ease-out, ease-in-out, linear;
+</pre></div>
+    </section>
+    <section id="transitionDelay">
+        <header class="page-header">
+            <h2>delay</h2>
+            <div class="explain">
+                <p>检索或设置对象延迟过渡的时间。</p>
+                <p>如果提供多个属性值，以逗号进行分隔。</p>
+                <p>对应的脚本特性为transitionDelay。</p>
+                <p>默认值：0。</p>
+            </div>
+            <div class="syntax"><p>transition-delay：&lt;time&gt;[ ,&lt;time&gt; ]*</p></div>
+        </header>
+        <div class="alert yellow">通过设置相同的<code>transition-timing-function, transition-duration</code>，观察不同<code>transition-delay</code>的效果。</div>
+        <div class="example">
+            <div class="transi transi-delay  node-duration touch">
+                <!--<div class="node touch node-brown"> </div>-->
+                <div class="node node-yellow delay-1">top (delay:0.2s)</div>
+                <div class="node node-orange delay-2">top (delay:1s)</div>
+                <div class="node node-red delay-3">top (delay:3s)</div>
+
+            </div>
+        </div>
+        <div  class="prePrtBox sign"><pre  class="prettyprint">
+/*  设置延迟过渡的时间为 .5s  */
+-webkit-transition-delay: .5s;
+   -moz-transition-delay: .5s;
+    -ms-transition-delay: .5s;
+        transition-delay: .5s;
+        </pre></div>
+    </section>
+    <section id="transitionPropertySupport">
+    <header class="page-header">
+        <h2>Property Support</h2>
+        <div class="explain">
+            <p>以下表格中的属性支持设置 <code>Transition</code>。</p>
+        </div>
+    </header>
+    <table class="table table-striped table-bordered">
+    <tbody>
+    <tr>
+        <th>Property Name</th>
+        <th>Type</th>
+    </tr>
+    <tr>
+        <td><code>background-color</code></td>
+        <td>color</td>
+    </tr>
+    <tr>
+        <td><code>background-image</code></td>
+        <td>only gradients</td>
+    </tr>
+    <tr>
+        <td><code>background-position</code></td>
+        <td>percentage, length</td>
+    </tr>
+    <tr>
+        <td><code>border-bottom-color</code></td>
+        <td>color</td>
+    </tr>
+    <tr>
+        <td><code>border-bottom-width</code></td>
+        <td>length</td>
+    </tr>
+    <tr>
+        <td><code>border-color</code></td>
+        <td>color</td>
+    </tr>
+    <tr>
+        <td><code>border-left-color</code></td>
+        <td>color</td>
+    </tr>
+    <tr>
+        <td><code>border-left-width</code></td>
+        <td>length</td>
+    </tr>
+    <tr>
+        <td><code>border-right-color</code></td>
+        <td>color</td>
+    </tr>
+    <tr>
+        <td><code>border-right-width</code></td>
+        <td>length</td>
+    </tr>
+    <tr>
+        <td><code>border-spacing</code></td>
+        <td>length</td>
+    </tr>
+    <tr>
+        <td><code>border-top-color</code></td>
+        <td>color</td>
+    </tr>
+    <tr>
+        <td><code>border-top-width</code></td>
+        <td>length</td>
+    </tr>
+    <tr>
+        <td><code>border-width</code></td>
+        <td>length</td>
+    </tr>
+    <tr>
+        <td><code>bottom</code></td>
+        <td>length, percentage</td>
+    </tr>
+    <tr>
+        <td><code>color</code></td>
+        <td>color</td>
+    </tr>
+    <tr>
+        <td><code>crop</code></td>
+        <td>rectangle</td>
+    </tr>
+    <tr>
+        <td><code>font-size</code></td>
+        <td>length, percentage</td>
+    </tr>
+    <tr>
+        <td><code>font-weight</code></td>
+        <td>number</td>
+    </tr>
+    <tr>
+        <td><code>grid-*</code></td>
+        <td>various</td>
+    </tr>
+    <tr>
+        <td><code>height</code></td>
+        <td>length, percentage</td>
+    </tr>
+    <tr>
+        <td><code>left</code></td>
+        <td>length, percentage</td>
+    </tr>
+    <tr>
+        <td><code>letter-spacing</code></td>
+        <td>length</td>
+    </tr>
+    <tr>
+        <td><code>line-height</code></td>
+        <td>number, length, percentage</td>
+    </tr>
+    <tr>
+        <td><code>margin-bottom</code></td>
+        <td>length</td>
+    </tr>
+    <tr>
+        <td><code>margin-left</code></td>
+        <td>length</td>
+    </tr>
+    <tr>
+        <td><code>margin-right</code></td>
+        <td>length</td>
+    </tr>
+    <tr>
+        <td><code>margin-top</code></td>
+        <td>length</td>
+    </tr>
+    <tr>
+        <td><code>max-height</code></td>
+        <td>length, percentage</td>
+    </tr>
+    <tr>
+        <td><code>max-width</code></td>
+        <td>length, percentage</td>
+    </tr>
+    <tr>
+        <td><code>min-height</code></td>
+        <td>length, percentage</td>
+    </tr>
+    <tr>
+        <td><code>min-width</code></td>
+        <td>length, percentage</td>
+    </tr>
+    <tr>
+        <td><code>opacity</code></td>
+        <td>number</td>
+    </tr>
+    <tr>
+        <td><code>outline-color</code></td>
+        <td>color</td>
+    </tr>
+    <tr>
+        <td><code>outline-offset</code></td>
+        <td>integer</td>
+    </tr>
+    <tr>
+        <td><code>outline-width</code></td>
+        <td>length</td>
+    </tr>
+    <tr>
+        <td><code>padding-bottom</code></td>
+        <td>length</td>
+    </tr>
+    <tr>
+        <td><code>padding-left</code></td>
+        <td>length</td>
+    </tr>
+    <tr>
+        <td><code>padding-right</code></td>
+        <td>length</td>
+    </tr>
+    <tr>
+        <td><code>padding-top</code></td>
+        <td>length</td>
+    </tr>
+    <tr>
+        <td><code>right</code></td>
+        <td>length, percentage</td>
+    </tr>
+    <tr>
+        <td><code>text-indent</code></td>
+        <td>length, percentage</td>
+    </tr>
+    <tr>
+        <td><code>text-shadow</code></td>
+        <td>shadow</td>
+    </tr>
+    <tr>
+        <td><code>top</code></td>
+        <td>length, percentage</td>
+    </tr>
+    <tr>
+        <td><code>vertical-align</code></td>
+        <td>keywords, length, percentage</td>
+    </tr>
+    <tr>
+        <td><code>visibility</code></td>
+        <td>visibility</td>
+    </tr>
+    <tr>
+        <td><code>width</code></td>
+        <td>length, percentage</td>
+    </tr>
+    <tr>
+        <td><code>word-spacing</code></td>
+        <td>length, percentage</td>
+    </tr>
+    <tr>
+        <td><code>z-index</code></td>
+        <td>integer</td>
+    </tr>
+    <tr>
+        <td><code>zoom</code></td>
+        <td>number</td>
+    </tr>
+    </tbody>
+    </table>
+    </section>
+    </div>
+    <div class="col-s3">
+        <aside class="aside">
+            <ul class="aside-nav">
+                <li class="cur"><a href="#transitionOrg">transition</a></li>
+                <li><a href="#transitionProperty">property</a></li>
+                <li><a href="#transitionDuration">duration</a></li>
+                <li><a href="#transitionTimeFunc">timing function</a></li>
+                <li><a href="#transitionDelay">delay</a></li>
+                <li><a href="#transitionPropertySupport">Property Support</a></li>
+            </ul>
+        </aside>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div id="animation" class="page hidden">
+    <header class="overview">
+        <div class="inner">
+            <h1>CSS3 Animation</h1>
+            <p>定义多个关键帧以及定义每个关键帧中元素的属性值来实现复杂的动画效果。</p>
+        </div>
+    </header>
+    <div class="notice"><div class="inner"></div> </div>
+    <div class="container">
+    <div class="inner">
+    <div class="row">
+    <div class="col-s2">
+    <section id="animationOrg">
+        <header class="page-header">
+            <h2>animation</h2>
+            <div class="explain">
+                <p>复合属性。检索或设置对象所应用的动画特效。</p>
+                <p>如果提供多组属性值，以逗号进行分隔。</p>
+                <p>对应的脚本特性为animation。</p>
+
+            </div>
+            <div class="syntax">
+                <p>animation：[[ animation-name ] || [ animation-duration ] || [ animation-timing-function ] || [ animation-delay ] || [ animation-iteration-count ] || [ animation-direction ]] [ , [ animation-name ] || [ animation-duration ] || [ animation-timing-function ] || [ animation-delay ] || [ animation-iteration-count ] || [ animation-direction ]]*</p>
+            </div>
+        </header>
+                 <div  class="prePrtBox sign"><pre  class="prettyprint">
+-webkit-animation: &lt;name&gt; &lt;duration&gt; &lt;timing-function&gt; &lt;delay&gt;
+                   &lt;iteration-count&gt; &lt;direction&gt;
+   -moz-animation: &lt;name&gt; &lt;duration&gt;,&lt;timing-function&gt; &lt;delay&gt;
+                   &lt;iteration-count&gt; &lt;direction&gt;
+    -ms-animation: &lt;name&gt; &lt;duration&gt;,&lt;timing-function&gt; &lt;delay&gt;
+                   &lt;iteration-count&gt; &lt;direction&gt;
+        animation: &lt;name&gt; &lt;duration&gt;,&lt;timing-function&gt; &lt;delay&gt;
+                   &lt;iteration-count&gt; &lt;direction&gt;
+
+@-webkit-keyframes &lt;name&gt; { /* rules */}
+   @-moz-keyframes &lt;name&gt; { /* rules */}
+    @-ms-keyframes &lt;name&gt; { /* rules */}
+        @keyframes &lt;name&gt; { /* rules */}</pre></div>
+    </section>
+    <section id="animationName">
+        <header class="page-header">
+            <h2>name</h2>
+            <div class="explain">
+                <p>检索或设置对象所应用的动画名称，必须与规则<code>@keyframes</code>配合使用，因为动画名称由<code>@keyframes</code>定义。</p>
+                <p>如果提供多个属性值，以逗号进行分隔。</p>
+                <p>对应的脚本特性为animationName。</p>
+            </div>
+            <div class="syntax"><p>animation-name：none | &lt;identifier&gt; [ , none | &lt;identifier&gt; ]*</p></div>
+        </header>
+        <div class="example">
+            <div class="anim anim-name node-duration">
+                <div class="node touch node-purple anim-flash">flash</div>
+                <div class="node touch node-blue anim-bounce">bounce</div>
+                <div class="node touch node-green anim-shake">shake</div>
+                <div class="node touch node-yellow anim-tada">tada</div>
+                <div class="node touch node-orange anim-swing">swing</div>
+                <div class="node touch node-red anim-wobble">wobble</div>
+                <div class="node touch node-red anim-wiggle">wiggle</div>
+                <div class="node touch node-orange anim-pulse">pulse</div>
+                <div class="node touch node-yellow anim-hinge">hinge</div>
+                <div class="node touch node-green anim-fadeInUp">fadeInUp</div>
+                <div class="node touch node-blue anim-rotateOut">rotateOut</div>
+                <div class="node touch node-purple anim-lightSpeedOut">lightSpeedOut</div>
+            </div>
+        </div>
+                 <div  class="prePrtBox sign"><pre  class="prettyprint">
+-webkit-animation-name: &lt;name&gt;
+   -moz-animation-name: &lt;name&gt;
+    -ms-animation-name: &lt;name&gt;
+        animation-name: &lt;name&gt;</pre></div>
+    </section>
+
+    <section id="animationDuration">
+        <header class="page-header">
+            <h2>duration</h2>
+            <div class="explain">
+                <p>检索或设置对象动画的持续时间.</p>
+                <p>如果提供多个属性值，以逗号进行分隔。</p>
+                <p>对应的脚本特性为animationDuration。</p>
+                <p>默认值：0。</p>
+            </div>
+            <div class="syntax"><p>animation-duration：&lt;time&gt; [ , &lt;time&gt; ]*/p></div>
+        </header>
+        <div class="alert yellow">通过设置相同的<code>animation-timing-function, animation-delay</code>，观察不同<code>animation-duration</code>的效果。</div>
+        <div class="example">
+            <div class="anim anim-duration touch">
+                <div class="node node-purple duration-1">shake (duration:0.2s)</div>
+                <div class="node node-blue duration-2">shake (duration:0.5s)</div>
+                <div class="node node-green duration-3">shake (duration:1s)</div>
+                <div class="node node-yellow duration-4">shake (duration:2s)</div>
+                <div class="node node-orange duration-5">shake (duration:3s)</div>
+            </div>
+        </div>
+                 <div  class="prePrtBox sign"><pre  class="prettyprint">
+/*  改变持续时间为 1s  */
+ -webkit-animation-duration: 2s;
+    -moz-animation-duration: 2s;
+     -ms-animation-duration: 2s;
+         animation-duration: 2s;</pre></div>
+    </section>
+    <section id="animationTimeFunc">
+        <header class="page-header">
+            <h2>timing function</h2>
+            <div class="explain">
+                <p>检索或设置对象动画的过渡类型</p>
+                <p>如果提供多个属性值，以逗号进行分隔。</p>
+                <p>对应的脚本特性为animationTimingFunction。</p>
+                <p>linear：线性过渡。等同于贝塞尔曲线(0.0, 0.0, 1.0, 1.0)</p>
+                <p>ease：平滑过渡。等同于贝塞尔曲线(0.25, 0.1, 0.25, 1.0)</p>
+                <p>ease-in：由慢到快。等同于贝塞尔曲线(0.42, 0, 1.0, 1.0)</p>
+                <p>ease-out：由快到慢。等同于贝塞尔曲线(0, 0, 0.58, 1.0)</p>
+                <p>ease-in-out：由慢到快再到慢。等同于贝塞尔曲线(0.42, 0, 0.58, 1.0)</p>
+                <p>cubic-bezier(&lt;number&gt;, &lt;number&gt;, &lt;number&gt;, &lt;number&gt;)：特定的贝塞尔曲线类型，4个数值需在[0, 1]区间内</p>
+                <p>默认值：ease。</p>
+            </div>
+        </header>
+        <div class="alert yellow">通过设置相同的<code>animation-duration, animation-delay</code>，观察不同<code>animation-timing-function</code>的效果。</div>
+        <div class="example">
+            <div class="anim anim-timeFunc node-duration touch">
+
+                <div class="node node-purple timeFunc-ease ">rotateOut (ease)</div>
+                <div class="node node-blue timeFunc-in "><span>rotateOut</span><span>(ease-in)</span></div>
+                <div class="node node-green timeFunc-out "><span>rotateOut</span><span>(ease-out)</span></div>
+                <div class="node node-yellow timeFunc-in-out "><span>rotateOut</span><span>(ease-in-out)</span></div>
+                <div class="node node-orange timeFunc-linear ">rotateOut (linear)</div>
+                <div class="node node-red timeFunc-bzr "><span>rotateOut</span><span>cubic-bezier</span><span>(0.2,0.6,0.8,0.4)</span></div>
+            </div>
+        </div>
+             <div  class="prePrtBox sign"><pre  class="prettyprint">
+-webkit-animation-timing-function: &lt;fn&gt;;
+   -moz-animation-timing-function: &lt;fn&gt;;
+    -ms-animation-timing-function: &lt;fn&gt;;
+        animation-timing-function: &lt;fn&gt;;</pre></div>
+    </section>
+
+    <section id="animationDelay">
+        <header class="page-header">
+            <h2>delay</h2>
+            <div class="explain">
+                <p>检索或设置对象延迟过渡的时间。</p>
+                <p>如果提供多个属性值，以逗号进行分隔。</p>
+                <p>对应的脚本特性为animationDelay。</p>
+                <p>默认值：0。</p>
+            </div>
+            <div class="syntax"><p>animation-delay：&lt;time&gt;[ ,&lt;time&gt; ]*</p></div>
+        </header>
+        <div class="alert yellow">通过设置相同的<code>animation-timing-function, animation-duration</code>，观察不同<code>animation-delay</code>的效果。</div>
+        <div class="example">
+            <div class="anim anim-delay  node-duration touch">
+
+                <div class="node node-purple delay-1 ">bounce (delay:0.2s)</div>
+                <div class="node node-blue delay-2 ">bounce (delay:0.5s)</div>
+                <div class="node node-green delay-3 ">bounce (delay:1s)</div>
+                <div class="node node-yellow delay-4 ">bounce (delay:2s)</div>
+                <div class="node node-orange delay-5 ">bounce (delay:3s)</div>
+            </div>
+        </div>
+             <div  class="prePrtBox sign"><pre  class="prettyprint">
+/*  设置延迟过渡的时间为 1s  */
+-webkit-animation-delay: 1s;
+   -moz-animation-delay: 1s;
+    -ms-animation-delay: 1s;
+        animation-delay: 1s;</pre></div>
+    </section>
+
+    <section id="animationItaCount">
+        <header class="page-header">
+            <h2>iteration count</h2>
+            <div class="explain">
+                <p>检索或设置对象动画的循环次数.</p>
+                <p>如果提供多个属性值，以逗号进行分隔。</p>
+                <p>对应的脚本特性为animationIterationCount。</p>
+                <p>默认值：1，infinite表示无限循环，不能为负值.</p>
+            </div>
+            <div class="syntax"><p>animation-iteration-count：infinite | &lt;number&gt; [ , infinite | &lt;number&gt; ]*</p></div>
+        </header>
+        <!--<div class="example">-->
+
+        <!--</div>-->
+             <div  class="prePrtBox sign"><pre  class="prettyprint">
+-webkit-animation-iteration-count: infinite;
+   -moz-animation-iteration-count: infinite;
+    -ms-animation-iteration-count: infinite;
+        animation-iteration-count: infinite;</pre></div>
+    </section>
+
+    <section id="animationDirection">
+        <header class="page-header">
+            <h2>direction</h2>
+            <div class="explain">
+                <p>检索或设置对象动画在循环中是否反向运动。</p>
+                <p>注意当动画处于反向运动时，对应的运动类型也会翻转。例如使用ease-in会变成ease-out。</p>
+                <p>对应的脚本特性为animationDirection。</p>
+                <p>normal：默认值，正常方向。</p>
+                <p>reverse：动画反向运行,方向始终与normal相反。</p>
+                <p>alternate：动画会循环正反方向交替运动，奇数次会正常运动，偶数次会反向运动，即所有相关联的值都会反向。</p>
+                <p>alternate-reverse：动画从反向开始，再正反方向交替运动，运动方向始终与alternate定义的相反。</p>
+            </div>
+            <div class="syntax"><p>animation-direction: normal | reverse | alternate | alternate-reverse [, normal | reverse | alternate | alternate-reverse ]*</p></div>
+        </header>
+        <div class="alert yellow">通过设置<code>animation-iteration-count:4, animation-timing-function:ease-in-out</code>,<br>观察连续4次动画中不同<code>animation-direction</code>的效果。</div>
+        <div class="example">
+            <div class="anim anim-direction node-duration">
+                <div class="node touch node-blue direction-normal timeFunc-in-out ">normal</div>
+                <div class="node touch node-green direction-reverse timeFunc-in-out ">reverse</div>
+                <div class="node touch node-yellow direction-alternate timeFunc-in-out ">alternate</div>
+                <div class="node touch node-orange direction-alternate-reverse timeFunc-in-out ">alternate-reverse</div>
+            </div>
+        </div>
+             <div  class="prePrtBox sign"><pre  class="prettyprint">
+-webkit-animation-direction: reverse;
+   -moz-animation-direction: reverse;
+    -ms-animation-direction: reverse;
+        animation-direction: reverse;</pre></div>
+    </section>
+
+    <section id="animationPlayState">
+        <header class="page-header">
+            <h2>play state</h2>
+            <div class="explain">
+                <p>检索或设置对象动画的状态</p>
+                <p>如果提供多个属性值，以逗号进行分隔。</p>
+                <p>对应的脚本特性为animationPlayState。</p>
+                <p>默认值为running。设置状态为paused能够使一个运动的动画暂停。再次设置状态为running会继续当前的动画，而无需重新执行动画。</p>
+            </div>
+            <div class="syntax"><p>aanimation-play-state：running | paused [ , running | paused ]*</p></div>
+        </header>
+        <div class="alert yellow">设置<code>animation-iteration-count:10</code></div>
+        <div class="example">
+            <div class="anim anim-play-state">
+                <a href="javascript:;" class="btn-click" id="animationPause" call="app.pause(this)"></a>
+                <div class="node node-green pulse" id="eventPulse"></div>
+            </div>
+        </div>
+             <div  class="prePrtBox sign"><pre  class="prettyprint">
+-webkit-animation-play-state: paused;
+   -moz-animation-play-state: paused;
+    -ms-animation-play-state: paused;
+        animation-play-state: paused;</pre></div>
+    </section>
+
+    <section id="animationFillMode">
+        <header class="page-header">
+            <h2>fill mode</h2>
+            <div class="explain">
+                <p>检索或设置对象动画时间之外的状态</p>
+                <p>如果提供多个属性值，以逗号进行分隔。</p>
+                <p>对应的脚本特性为animationFillMode。</p>
+                <p>none：默认值。不设置对象动画之外的状态</p>
+                <p>forwards：结束后保持动画结束时的状态，但当animation-direction为0，则动画不执行，持续保持动画开始时的状态</p>
+                <p>backwards：结束后返回动画开始时的状态</p>
+                <p>both：结束后可遵循forwards和backwards两个规则</p>
+            </div>
+            <div class="syntax"><p>animation-fill-mode：none | forwards | backwards | both [ , none | forwards | backwards | both ]*</p></div>
+        </header>
+        <div class="example">
+            <div class="anim anim-fill-mode node-duration touch">
+                <div class="node node-blue">none</div>
+                <div class="node node-green mode-forwards">forwards</div>
+                <div class="node node-yellow mode-backwards">backwards</div>
+                <div class="node node-orange mode-both">both</div>
+            </div>
+        </div>
+             <div  class="prePrtBox sign"><pre  class="prettyprint">
+-webkit-animation-fill-mode: forwards;
+   -moz-animation-fill-mode: forwards;
+    -ms-animation-fill-mode: forwards;
+        animation-fill-mode: forwards;</pre></div>
+    </section>
+    </div>
+    <div class="col-s3">
+        <aside class="aside">
+            <ul class="aside-nav">
+                <li class="cur"><a href="#animationOrg">animation</a></li>
+                <li><a href="#animationName">name</a></li>
+                <li><a href="#animationDuration">duration</a></li>
+                <li><a href="#animationTimeFunc">timing function</a></li>
+                <li><a href="#animationDelay">delay</a></li>
+                <li><a href="#animationItaCount">iteration count</a></li>
+                <li><a href="#animationDirection">direction</a></li>
+                <li><a href="#animationPlayState">play state</a></li>
+                <li><a href="#animationFillMode">fill mode</a></li>
+            </ul>
+        </aside>
+    </div>
+    </div>
+    </div>
+    </div>
+
+    </div>
+    <div id="event" class="page hidden">
+    <header class="overview">
+        <div class="inner">
+            <h1>JS Events</h1>
+            <p>使用js来给动画元素添加指定的类，动画本身定义在css，它避免了脚本里到处是硬编码的css，实现分离逻辑。</p>
+        </div>
+    </header>
+    <div class="notice"><div class="inner"></div> </div>
+    <div class="container">
+    <div class="inner">
+    <div class="row">
+    <div class="col-s2">
+        <section id="animationEvent">
+            <header class="page-header">
+                <h2>animation event</h2>
+                <div class="explain">
+                    <p>Animation 可以监听三个事件，分别是：animationstart、animationend、animationiteration</p>
+                    <p>事件均支持冒泡，且可撤销。</p>
+                </div>
+            </header>
+            <div class="example">
+                <div class="event">
+                    <a href="javascript:;" class="btn-click" id="eventPlay" call="app.play(this)"></a>
+                    <div id="animBox" class="node node-green">animation</div>
+                    <div class="cont-text">
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <section id="animationStart">
+            <header class="page-header">
+                <h2>animation start</h2>
+                <div class="explain">
+                    <p>事件在动画开始时触发。设置<code>animation-delay</code>时，触发在延迟之后。</p>
+                    <p>上下文信息：<code>animationName</code></p>
+                </div>
+            </header>
+
+            <div  class="prePrtBox sign"><pre  class="prettyprint">
+//for firefox and IE10
+element.addEventListener("animationstart", function(e) {
+            //do something
+       }
+//for chrome and safari
+element.addEventListener("wekitAnimationStart", function(e) {
+            //do something
+       }</pre></div>
+        </section>
+        <section id="animationEnd">
+            <header class="page-header">
+                <h2>animation end</h2>
+                <div class="explain">
+                    <p>事件在动画结束后触发。</p>
+                    <p>上下文信息：<code>animationName</code>,<code>elapsedTime</code></p>
+                </div>
+            </header>
+
+            <div  class="prePrtBox sign"><pre  class="prettyprint">
+//for firefox and IE10
+element.addEventListener("animationend", function(e) {
+            //do something
+       }
+//for chrome and safari
+element.addEventListener("wekitAnimationEnd", function(e) {
+            //do something
+       }</pre></div>
+        </section>
+        <section id="animationIta">
+        <header class="page-header">
+            <h2>animation iteration</h2>
+            <div class="explain">
+                <p>事件在<code>animation-iteration-count</code>大于1时才触发。</p>
+                <p>上下文信息：<code>animationName</code>,<code>elapsedTime</code></p>
+            </div>
+        </header>
+
+        <div  class="prePrtBox sign"><pre  class="prettyprint">
+//for firefox and IE10
+element.addEventListener("animationinteration", function(e) {
+            //do something
+       }
+//for chrome and safari
+element.addEventListener("wekitAnimationInteration", function(e) {
+            //do something
+       }</pre></div>
+    </section>
+    </div>
+    <div class="col-s3">
+        <aside class="aside">
+            <ul class="aside-nav">
+                <li class="cur"><a href="#animationEvent">animation event</a></li>
+                <li class=""><a href="#animationStart">animation start</i></a></li>
+                <li class=""><a href="#animationEnd">animation end</i></a></li>
+                <li><a href="#animationIta">animation iteration</a></li>
+                <!--<li><a href="#transiEnd">transition end</a></li>-->
+            </ul>
+        </aside>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+</div>
+</div>
+<footer id="footer">
+    <div class="inner">Copyright <a href="http://nicolegithub.github.io/"> http://nicolegithub.github.io</a> All Rights Reserved.
+    </div>
+</footer>
+
+<!-- javascript -->
+<script src="../../lib/js/plugin/google-code-prettify.js"></script>
+<script src="../../lib/js/base/jquery/2.1.0/jquery.min.js"></script>
+<script src="js/client.js"></script>
+<script src="js/plugin.js"></script>
+<script src="js/main.js"></script>
+<script>
+    (function($){
+        window.prettyPrint && prettyPrint();
+        app.init()
+
+    })(window.jQuery)
+</script>
+</body>
+</html>j

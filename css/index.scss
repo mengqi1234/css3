@@ -1,0 +1,61 @@
+@charset "utf-8";
+$lte7:true !default;//是否兼容ie6,7
+@import "../../../lib/css/normalize.css";
+@import "gobal";
+@import "variables";
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+body{font-family: Arial,'Times New Roman','Microsoft YaHei',SimHei; font-size: 14px;background: #000;}
+button, html input[type=button], input[type=reset], input[type=submit] {
+  -webkit-appearance: button;
+  cursor: pointer;
+}
+input, button, select, textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+button, select {
+  text-transform: none;
+}
+
+hr{
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: 0;
+  border-top: 1px solid $gray-darker;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0
+}
+.half-rule{
+  width: 100px;
+  margin: 40px auto
+}
+.inner{margin-left: auto;margin-right: auto;padding-left: 15px;padding-right: 15px}
+pre{white-space:pre;white-space:pre-wrap;word-break:break-all;word-wrap:break-word;}
+@media (min-width: $screen-s1){
+  .inner{width:$inner-width-s1}
+}
+@media (min-width: $screen-s2){
+  .inner{width:$inner-width-s2}
+}
+@media (min-width: $screen-s3){
+  .inner{width:$inner-width-s3}
+}
+
+@media (min-width: $screen-s4){
+  .inner{width:$inner-width-s4}
+}
+
+
+@import "animatefunc";
+@import "navBar";
+@import "header";
+@import "main";
+@import "animate";
+@import "footer";

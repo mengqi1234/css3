@@ -1,0 +1,446 @@
+@charset "utf-8";
+.container{
+  color:$gray-light;
+  .preface{
+    text-align: center;
+    h2{
+      color: $gray-lighter;
+      font-size: 40px;
+    }
+  }
+  .row{
+    margin-left: -15px;
+    margin-right: -15px;
+    @include clearfix();
+    .col-s1{
+      h3{
+        margin-bottom: 5px;
+        font-weight: 400;
+        color: $gray-lighter;
+        font-size: 24px;
+      }
+    }
+  }
+  section{
+    padding-top: 10px;
+    margin-bottom:40px;
+
+  }
+}
+
+.col-s1,.col-s2,.col-s3{
+  padding:0 15px 15px;
+}
+
+
+.page-header{
+  padding-bottom: 9px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid $gray-darker;
+  h2{
+    font-size: 36px;
+    color:$gray-lighter;
+  }
+}
+
+.example,
+.prePrtBox{
+  position: relative;
+  margin: 15px 0 0;
+  padding: 34px 5% 15px;
+  background-color: $gray-darker;
+  border: 1px solid $gray-light;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+.example{
+  background-color: $gray-dark;
+}
+.prePrtBox pre{
+  color: $gray-lighter;
+}
+
+.example:after{
+  content: "Example";
+  position: absolute;
+  top:-1px;
+  left: -1px;
+  padding: 3px 7px;
+  border: 1px solid $gray;
+  background-color: $gray-dark;
+  font-size: 11px;
+  font-weight: bold;
+  color: $theme;
+  -webkit-border-radius: 4px 0 4px 0;
+  -moz-border-radius: 4px 0 4px 0;
+  border-radius: 4px 0 4px 0;
+
+}
+
+.sign :after{
+  content: "Code";
+  position: absolute;
+  top:-1px;
+  right: -1px;
+  padding: 3px 7px;
+  border: 1px solid $gray;
+  background-color: $gray-dark;
+  font-size: 11px;
+  font-weight: bold;
+  color:  $theme;
+  -webkit-border-radius: 0 4px 0 4px;
+  -moz-border-radius: 0 4px 0 4px;
+  border-radius: 0 4px 0 4px;
+}
+
+code {
+  margin: 0 3px;
+  padding: 2px 4px;
+  color: $code-red;
+  background-color: $theme;
+  border: 1px solid $theme-lighter;
+  font-family: consolas;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+
+.explain,
+.syntax{
+  position: relative;
+  padding-left: 55px;
+  margin:8px 0 12px;
+}
+
+.explain :before,
+.syntax :before {
+  position: absolute;
+  display: block;
+  left: 0;
+  top: 0;
+  width: 45px;
+  padding-left: 5px;
+  font-weight: bold;
+}
+.explain :before {
+  content:quote('说明：') ;
+  color:$gray-lighter;
+
+}
+.syntax :before {
+  content:quote('语法：') ;
+  color:$gray-lighter;
+
+}
+.alert {
+  margin: 15px 0;
+  line-height: 28px;
+}
+.yellow {
+  color:$theme;
+}
+.explain p{
+  margin-bottom: 4px;
+  line-height: 23px;
+}
+
+.aside{
+    margin:10px 0;
+    li{
+      a{
+        display:block;
+        padding:4px 20px;
+        color:$gray;
+      }
+      a:hover{
+        border-left:1px solid $theme;
+        padding-left: 19px;
+        color: $theme;
+      }
+    }
+    li.cur{
+      a{
+        border-left:2px solid $theme;
+        padding-left: 18px;
+        color:$theme ;
+      }
+    }
+
+}
+
+@media (min-width: $screen-s2){
+  .preface{
+    padding-top: 80px;
+  }
+  .col-s1{
+    float: left;
+    width:  33.33333%;
+    text-align: center;
+  }
+  .aside-nav{
+    padding-left: 20px;
+  }
+}
+@media (min-width: $screen-s3){
+  .col-s2{width: 75%;float: left};
+  .col-s3{width: 25%;float: left};
+
+  .fixed{
+    position: fixed;
+    top:20px;
+  }
+}
+
+/********** table **********/
+table {
+  max-width: 100%;
+  background-color: transparent;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.table {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.table th,
+.table td {
+  padding: 8px;
+  line-height: 20px;
+  text-align: left;
+  vertical-align: top;
+  border-top: 1px solid $gray;
+}
+
+.table th {
+  font-weight: bold;
+}
+
+.table thead th {
+  vertical-align: bottom;
+}
+
+.table caption + thead tr:first-child th,
+.table caption + thead tr:first-child td,
+.table colgroup + thead tr:first-child th,
+.table colgroup + thead tr:first-child td,
+.table thead:first-child tr:first-child th,
+.table thead:first-child tr:first-child td {
+  border-top: 0;
+}
+
+.table tbody + tbody {
+  border-top: 2px solid $gray;
+}
+
+
+.table-condensed th,
+.table-condensed td {
+  padding: 4px 5px;
+}
+
+.table-bordered {
+  border: 1px solid $gray;
+  border-collapse: separate;
+  *border-collapse: collapse;
+  border-left: 0;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+
+.table-bordered th,
+.table-bordered td {
+  border-left: 1px solid $gray;
+}
+
+.table-bordered caption + thead tr:first-child th,
+.table-bordered caption + tbody tr:first-child th,
+.table-bordered caption + tbody tr:first-child td,
+.table-bordered colgroup + thead tr:first-child th,
+.table-bordered colgroup + tbody tr:first-child th,
+.table-bordered colgroup + tbody tr:first-child td,
+.table-bordered thead:first-child tr:first-child th,
+.table-bordered tbody:first-child tr:first-child th,
+.table-bordered tbody:first-child tr:first-child td {
+  border-top: 0;
+}
+
+.table-bordered thead:first-child tr:first-child > th:first-child,
+.table-bordered tbody:first-child tr:first-child > td:first-child,
+.table-bordered tbody:first-child tr:first-child > th:first-child {
+  -webkit-border-top-left-radius: 4px;
+  border-top-left-radius: 4px;
+  -moz-border-radius-topleft: 4px;
+}
+
+.table-bordered thead:first-child tr:first-child > th:last-child,
+.table-bordered tbody:first-child tr:first-child > td:last-child,
+.table-bordered tbody:first-child tr:first-child > th:last-child {
+  -webkit-border-top-right-radius: 4px;
+  border-top-right-radius: 4px;
+  -moz-border-radius-topright: 4px;
+}
+
+.table-bordered thead:last-child tr:last-child > th:first-child,
+.table-bordered tbody:last-child tr:last-child > td:first-child,
+.table-bordered tbody:last-child tr:last-child > th:first-child,
+.table-bordered tfoot:last-child tr:last-child > td:first-child,
+.table-bordered tfoot:last-child tr:last-child > th:first-child {
+  -webkit-border-bottom-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  -moz-border-radius-bottomleft: 4px;
+}
+
+.table-bordered thead:last-child tr:last-child > th:last-child,
+.table-bordered tbody:last-child tr:last-child > td:last-child,
+.table-bordered tbody:last-child tr:last-child > th:last-child,
+.table-bordered tfoot:last-child tr:last-child > td:last-child,
+.table-bordered tfoot:last-child tr:last-child > th:last-child {
+  -webkit-border-bottom-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  -moz-border-radius-bottomright: 4px;
+}
+
+.table-bordered tfoot + tbody:last-child tr:last-child td:first-child {
+  -webkit-border-bottom-left-radius: 0;
+  border-bottom-left-radius: 0;
+  -moz-border-radius-bottomleft: 0;
+}
+
+.table-bordered tfoot + tbody:last-child tr:last-child td:last-child {
+  -webkit-border-bottom-right-radius: 0;
+  border-bottom-right-radius: 0;
+  -moz-border-radius-bottomright: 0;
+}
+
+.table-bordered caption + thead tr:first-child th:first-child,
+.table-bordered caption + tbody tr:first-child td:first-child,
+.table-bordered colgroup + thead tr:first-child th:first-child,
+.table-bordered colgroup + tbody tr:first-child td:first-child {
+  -webkit-border-top-left-radius: 4px;
+  border-top-left-radius: 4px;
+  -moz-border-radius-topleft: 4px;
+}
+
+.table-bordered caption + thead tr:first-child th:last-child,
+.table-bordered caption + tbody tr:first-child td:last-child,
+.table-bordered colgroup + thead tr:first-child th:last-child,
+.table-bordered colgroup + tbody tr:first-child td:last-child {
+  -webkit-border-top-right-radius: 4px;
+  border-top-right-radius: 4px;
+  -moz-border-radius-topright: 4px;
+}
+.table-striped tbody > tr > td code{
+  white-space: nowrap
+}
+.table-striped tbody > tr:nth-child(odd) > td,
+.table-striped tbody > tr:nth-child(odd) > th {
+  background-color: $gray-dark;
+}
+.table-striped tbody > tr:nth-child(even) > td,
+.table-striped tbody > tr:nth-child(even) > th {
+  background-color: $gray-darker;
+}
+//.table-hover tbody tr:hover > td,
+//.table-hover tbody tr:hover > th {
+//  background-color: $gray-darker;
+//}
+
+table td[class*="span"],
+table th[class*="span"],
+.row-fluid table td[class*="span"],
+.row-fluid table th[class*="span"] {
+  display: table-cell;
+  float: none;
+  margin-left: 0;
+}
+
+#animationPlayState .example{
+  position: relative;
+}
+.example .btn-click{
+  display: block;
+  position: absolute;
+  z-index: 99;
+  right:15px;
+  bottom:10px;
+  background-color: #000;
+  border-radius: 4px;
+  width: 65px;
+  height:28px;
+  text-align: center;
+  line-height: 28px;
+  font-weight: bold;
+}
+.example .btn-click:after{
+  color: #d14;
+}
+.example .btn-click.play{
+  background-color:#d14
+}
+.example .btn-click.play:after{
+  color:#000;
+}
+.example .btn-click.changed{
+  background-color:#000;
+}
+.example .btn-click.changed:after{
+  color:#D14;
+}
+#animationPause:after{
+  content:"play";
+}
+#animationPause.play:after{
+  content:"pause";
+}
+#animationPause.changed:after{
+  content:"play";
+
+}
+#eventPlay:after{
+  content:"play";
+}
+#eventPlay.changed:after{
+  content:"loading";
+}
+#pages{
+    .page{position: relative;z-index: 0}
+    .inTypeOne{
+        z-index: 10;
+        @include animationFun(name,slideLeftIn);
+        @include duration(animation,250ms);
+
+    }
+
+    .inTypeTwo{
+      z-index: 10;
+      @include animationFun(name,fadeInUp);
+      @include duration(animation,.7s);
+      @include animationFun(timing-function,linear);
+    }
+
+}
+
+#backToTop{
+  &:after{
+    content: "TOP";
+    line-height: 40px;
+    color:$gray-darker;
+    font-weight: bold;
+  }
+  position: fixed;
+  z-index: 9999;
+  bottom:15px;
+  right:5px;
+  width:50px;
+  height: 50px;
+  border-radius: 25px;
+  -webkit-border-radius: 25px;
+  border:5px solid $theme-darker;
+  background:#fff;
+  opacity: .5;
+  text-align: center;
+}

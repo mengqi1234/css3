@@ -1,0 +1,84 @@
+/*********************** global color *********************/
+$gray-darker:            lighten(#000, 13.5%) !default; // #222
+$gray-dark:              lighten(#000, 20%) !default;   // #333
+$gray:                   lighten(#000, 33.5%) !default; // #555
+$gray-light:             lighten(#000, 60%) !default;   // #999
+$gray-lighter:           lighten(#000, 93.5%) !default; // #eee
+
+$color-one-s1:           #CFAD9B !default;
+$color-one-s2:           #AA775D !default;
+$color-one-s3:           #9D3B09 !default;
+
+$color-two-s1:           #C6A5C8 !default;
+$color-two-s2:           #98679C !default;
+$color-two-s3:           #880A90 !default;
+
+$color-three-s1:         #D9EDF7 !default;
+$color-three-s2:         #B2DAF1 !default;
+$color-three-s3:         #3A87AD !default;
+
+$color-four-s1:          #B5DB9C !default;
+$color-four-s2:          #64AB57 !default;
+$color-four-s3:          #3D9404 !default;
+
+$color-five-s1:          #F3E79B !default;
+$color-five-s2:          #CFAE51 !default;
+$color-five-s3:          #B59F12 !default;
+
+$color-six-s1:           #F2BA9F !default;
+$color-six-s2:           #E08558 !default;
+$color-six-s3:           #C15928 !default;
+
+$color-seven-s1:         #F7C4CB !default;
+$color-seven-s2:         #C36676 !default;
+$color-seven-s3:         #D74B60 !default;
+
+/************************ node color *************************/
+$node-one-bg:            $color-one-s1 !default;
+$node-one-border:        $color-one-s2 !default;
+$node-one-color:         $color-one-s3 !default;
+
+$node-two-bg:            $color-two-s1 !default;
+$node-two-border:        $color-two-s2 !default;
+$node-two-color:         $color-two-s3 !default;
+
+$node-three-bg:          $color-three-s1 !default;
+$node-three-border:      $color-three-s2 !default;
+$node-three-color:       $color-three-s3 !default;
+
+$node-four-bg:           $color-four-s1 !default;
+$node-four-border:       $color-four-s2 !default;
+$node-four-color:        $color-four-s3 !default;
+
+$node-five-bg:           $color-five-s1 !default;
+$node-five-border:       $color-five-s2 !default;
+$node-five-color:        $color-five-s3 !default;
+
+$node-six-bg:            $color-six-s1 !default;
+$node-six-border:        $color-six-s2 !default;
+$node-six-color:         $color-six-s3 !default;
+
+$node-seven-bg:          $color-seven-s1 !default;
+$node-seven-border:      $color-seven-s2 !default;
+$node-seven-color:       $color-seven-s3 !default;
+
+/********************** screen ***************************/
+$screen-s1:             480px !default;
+$screen-s2:             768px !default;
+$screen-s3:             992px !default;
+$screen-s4:             1200px !default;
+
+$inner-width-s1:        auto !default;
+$inner-width-s2:        750px !default;
+$inner-width-s3:        970px !default;
+$inner-width-s4:        1170px !default;
+
+
+$theme-darker:            lighten(#ffff00, 13.5%) !default;
+$theme-dark:              lighten(#ffff00, 20%) !default;
+$theme:                   lighten(#ffff00, 33.5%) !default;
+$theme-light:             lighten(#ffff00, 60%) !default;
+$theme-lighter:           lighten(#ffff00, 93.5%) !default;
+
+$header-text-color: #BFBF4D!default;
+$code-red:     #d14!default;

@@ -1,0 +1,99 @@
+#navbar{
+
+  background:#000;
+  margin:0 auto;
+  min-height: 50px;
+  .inner{
+    a{
+      display: block;
+      padding: 15px;
+      line-height: 20px;
+      color:$theme;
+    }
+
+  }
+}
+//    .navbar-link{
+//      float:right;
+//      margin-right: -15px;
+//      a{
+//        font-size: 18px;
+//        font-weight: bold;
+//        color:$gray-darker;
+//      }
+//      a:hover{color:$gray-lighter}
+//
+//    }
+.navbar-header{
+  @include clearfix();
+  margin-left: -15px;
+  margin-right: -15px;
+  .navbar-header-brand{
+    font-size: 18px;
+    float: left;
+    font-weight: bold;
+  }
+  .navbar-header-toggle{
+    border-color: #000;
+    position: relative;
+    float: right;
+    margin-right: 15px;
+    padding: 9px 10px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    background-color: transparent;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    .icon-bar {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background-color:$theme;
+      border-radius: 1px;
+
+    }
+    .icon-bar+.icon-bar {
+      margin-top: 4px;
+    }
+  }
+  .navbar-header-toggle.on{
+    background-color: $gray-darker;
+  }
+}
+.navbar-nav{
+  margin: 7.5px -15px;
+  a:hover{background: $gray-darker}
+}
+
+
+@media (min-width: $screen-s2){
+  #navbar{
+    @include clearfix();
+    .navbar-header,.navbar-nav{
+      float: left;
+    }
+    .navbar-header{
+      margin-left: 0;
+      margin-right: 0;
+      .navbar-header-toggle{
+        display: none;
+      }
+      .navbar-header-brand{
+        margin-left: -15px;
+      }
+    }
+    .navbar-nav{
+      display: block!important;
+      margin: 0;
+      @include clearfix();
+      li{
+        float: left;
+      }
+    }
+  }
+}
+#toggleNav.onIng{
+  @include animationFun(name,fadeInDown);
+  @include duration(animation,.7s);
+}

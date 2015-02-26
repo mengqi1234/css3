@@ -1,0 +1,607 @@
+.node {
+  border-width: 1px;
+  border-style: solid;
+  vertical-align: top;
+  webkit-transform: translateZ(0);
+  -moz-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-perspective: 1000;
+  -moz-perspective: 1000;
+  -ms-perspective: 1000;
+  perspective: 1000;
+}
+
+.node-brown{
+  background-color: $color-one-s1;
+  border-color: $color-one-s2;
+  color: $color-one-s3
+}
+.node-purple{
+  background-color: $color-two-s1;
+  border-color: $color-two-s2;
+  color: $color-two-s3
+}
+.node-blue{
+  background-color: $color-three-s1;
+  border-color: $color-three-s2;
+  color: $color-three-s3
+}
+.node-green{
+  background-color: $color-four-s1;
+  border-color: $color-four-s2;
+  color: $color-four-s3
+}
+.node-yellow{
+  background-color: $color-five-s1;
+  border-color: $color-five-s2;
+  color: $color-five-s3
+}
+.node-orange{
+  background-color: $color-six-s1;
+  border-color: $color-six-s2;
+  color: $color-six-s3
+}
+.node-red{
+  background-color: $color-seven-s1;
+  border-color: $color-seven-s2;
+  color: $color-seven-s3
+}
+
+/**************** transform **********************/
+.transf .node {
+  cursor: default;
+  position: relative;
+  display:inline-block;
+  @if $lte7 {
+    *display: inline;*zoom:1;
+  }
+  margin:8px;
+  width: 80px;
+  height: 80px;
+  text-align: center;
+  font-size: 11px;
+  line-height: 80px;
+  @include transition(all,.3s,ease-in,0)
+
+}
+@media (min-width: $screen-s3){
+ .transf .node {margin:12px;}
+}
+
+.transf .node.active {
+  z-index: 99;
+}
+
+.transf span{
+  display: block;
+  line-height: normal;
+}
+.transf span:first-child {
+  margin-top: 22px;
+}
+
+.transf-origin .node.active {
+   @include transform(rotate(45deg))
+}
+
+
+.origin-1 {
+  @include transformOrigin(20%,50%)
+}
+
+.origin-2 {
+  @include transformOrigin(0,100%)
+}
+
+.origin-3 {
+  @include transformOrigin(right,top)
+}
+
+.origin-4 {
+  @include transformOrigin(left,bottom)
+}
+
+.origin-5 {
+  @include transformOrigin(100%,100%)
+}
+
+.origin-6 {
+  @include transformOrigin(70%,70%)
+}
+
+.rotate-1.active {
+    @include transform(rotate(30deg))
+}
+
+.rotate-2.active {
+    @include transform(rotate(-30deg))
+}
+
+.rotate-3.active {
+    @include transform(rotate(90deg))
+}
+
+.rotate-4.active {
+    @include transform(rotate(120deg))
+}
+
+.rotate-5.active {
+    @include transform(rotate(-120deg))
+}
+
+.rotate-6.active {
+    @include transform(rotate(180deg))
+}
+
+.scale-1.active {
+  @include transform(scale(.5,.8))
+}
+
+.scale-2.active {
+  @include transform(scale(1.5,2))
+}
+
+.scale-3.active {
+  @include transform(scaleX(2))
+}
+
+.scale-4.active {
+  @include transform(scaleY(.8));
+}
+
+.scale-5.active {
+  @include transform(scale(-.8,1.2));
+}
+
+.scale-6.active {
+  @include transform(scale(1.5,-1.5));
+}
+
+.skew-1.active {
+  @include transform(skew(10deg,30deg));
+}
+
+.skew-2.active {
+  @include transform(skew(30deg,10deg));
+}
+
+.skew-3.active {
+  @include transform(skewX(45deg));
+}
+
+.skew-4.active {
+  @include transform(skewY(-45deg));
+}
+
+.skew-5.active {
+  @include transform(skew(-30deg,10deg));
+}
+
+.skew-6.active {
+  @include transform(skew(30deg,-10deg));
+}
+
+.translate-1.active {
+  @include transform(translate(10px,30px));
+
+}
+
+.translate-2.active {
+  @include transform(translate(30px,10px));
+}
+
+.translate-3.active {
+  @include transform(translateX(45px));
+
+}
+
+.translate-4.active {
+  @include transform(translateY(-45px));
+
+}
+
+.translate-5.active {
+  @include transform(translate(-30px,10px));
+}
+
+.translate-6.active {
+  @include transform(translate(30px,-10px));
+}
+
+/*.matrix{*/
+/*-webkit-transform: matrix(1, 0, 0, 1, 30, 30);*/
+/*-moz-transform: matrix(1, 0, 0, 1, 30, 30);*/
+/*-ms-transform: matrix(1, 0, 0, 1, 30, 30);*/
+/*transform: matrix(1, 0, 0, 1, 30, 30);*/
+/*}*/
+
+
+/************************ transition *************************/
+
+.node-duration .node{
+  @include duration(transition,1s);
+}
+
+.transi .node {
+  cursor: default;
+  position: relative;
+  display :inline-block;
+  @if $lte7 {
+    *display: inline;*zoom:1;
+  }
+  margin: 10px 30px;
+  width: 80%;
+  height: 30px;
+  text-align: center;
+  font-size: 11px;
+  line-height: 30px;
+  white-space: nowrap;
+}
+.transi-timeFunc .node,.transi-duration .node{
+  width: 40%;
+}
+
+
+.transi .node.active {
+  z-index: 99;
+}
+
+.transi-all .node{
+  @include transition(all,.5s,ease-in-out,0);
+}
+.transi-property .node{
+  -webkit-transition-property: background-color, border-color, color,width, height, line-height, margin, padding, opacity, font-size, font-weight;
+  -moz-transition-property: background-color, border-color, color, width, height, line-height, margin, padding, opacity, font-size, font-weight;
+  -ms-transition-property: background-color, border-color, color, width, height, line-height, margin, padding, opacity, font-size, font-weight;
+  transition-property: background-color, border-color, color, width, height, line-height, margin, padding, opacity, font-size, font-weight;
+}
+.transi-all.active .all-1,
+.property-1.active{
+  background-color: #CFAD9B;
+  border-color: #AA775D;
+  color: #9D3B09;
+}
+.transi-all.active .all-2,
+.property-2.active{
+  width:250px;
+  height:35px;
+  margin-bottom:5px;
+}
+.transi-all.active .all-3,
+.property-3.active{
+  margin-left:10px;
+  margin-right:50px;
+  margin-top:15px;
+  margin-bottom:5px
+}
+.transi-all.active .all-4,
+.property-4.active{
+  padding-left:15px;
+  margin-right: 15px;
+}
+.transi-all.active .all-5,
+.property-5.active{
+  opacity:.5;
+}
+.transi-all.active .all-6,
+.property-6.active{
+  font-size:16px;
+  font-weight:bold;
+}
+
+.transi-duration .node,
+.transi-timeFunc .node{
+  display:block;
+}
+
+.transi-duration.active div{
+  padding-right:70%;
+  z-index: 9;
+}
+.transi-timeFunc.active div{
+  margin-left: 45%;
+  z-index: 9;
+}
+.transi-delay{
+  height:200px;
+
+}
+.transi-delay .node{
+  width:27%;
+  margin: 2.5%;
+  top:0;
+}
+.transi-delay.active div{
+  top:145px;
+  z-index: 9;
+}
+
+.duration-1{
+  @include duration(transition,.2s);
+}
+.duration-2{
+  @include duration(transition,1s);
+}
+.duration-3{
+  @include duration(transition,3s);
+}
+
+.timeFunc-ease{
+  @include transitionFun(timing-function,ease)
+}
+.timeFunc-in{
+  @include transitionFun(timing-function,ease-in)
+}
+.timeFunc-ease-out{
+  @include transitionFun(timing-function,ease-out)
+}
+.timeFunc-ease-in-out{
+  @include transitionFun(timing-function,ease-in-out)
+}
+.timeFunc-linear{
+  @include transitionFun(timing-function,linear)
+}
+.timeFunc-bzr{
+  @include transitionFun(timing-function,cubic-bezier(0.2,0.6,0.8,0.4))
+}
+.delay-1{
+  @include transitionFun(delay,.2s)
+
+}
+.delay-2{
+  @include transitionFun(delay,1s)
+
+}
+.delay-3{
+  @include transitionFun(delay,3s)
+
+}
+/************************ animation **************************/
+#animation{
+ .node-duration .node{
+    @include duration(animation,1s);
+  }
+}
+
+.anim .node {
+  cursor: default;
+  position: relative;
+  display:inline-block;
+  @if $lte7 {
+    *display: inline;*zoom:1;
+  }
+  margin: 11px;
+  width:120px;
+  height: 40px;
+  text-align: center;
+  font-size: 11px;
+  line-height: 40px;
+  white-space:nowrap;
+}
+.anim-play-state .node,
+.anim-fill-mode .node{
+  width:50px;
+}
+.anim-timeFunc .node{
+  height: 60px;
+  line-height: 60px;
+}
+@media (min-width: $screen-s2){
+  .anim .node{width:100px}
+
+}
+.anim .node.active {
+  z-index: 99;
+}
+.anim span{
+  display: block;
+  line-height: normal;
+}
+
+.anim-flash.active{
+  @include animationFun(name,flash)
+}
+.anim-bounce.active{
+  @include animationFun(name,bounce)
+}
+.anim-shake.active{
+  @include animationFun(name,shake)
+}
+.anim-tada.active{
+  @include animationFun(name,tada)
+}
+.anim-swing.active{
+  @include transformOrigin(top,center);
+  @include animationFun(name,swing)
+}
+.anim-wobble.active{
+  @include animationFun(name,wobble)
+}
+.anim-wiggle.active{
+  @include animationFun(name,wiggle)
+}
+.anim-pulse.active{
+  @include animationFun(name,pulse)
+}
+.anim-hinge.active{
+  @include animationFun(name,hinge);
+  @include animationFun(timing-function,ease-in-out)
+}
+.anim-fadeInUp.active{
+  @include animationFun(name,fadeInUp)
+}
+.anim-rotateOut.active{
+  @include animationFun(name,rotateOut)
+}
+.anim-lightSpeedOut.active{
+  @include animationFun(name,lightSpeedOut);
+  @include animationFun(timing-function,ease-in)
+}
+
+
+.anim-duration.active .node{
+  @include animationFun(name,shake)
+}
+.duration-1{
+  @include duration(animation,.2s);
+}
+.duration-2{
+  @include duration(animation,.5s);
+}
+.duration-3{
+  @include duration(animation,1s);
+}
+.duration-4{
+  @include duration(animation,2s);
+}
+.duration-5{
+  @include duration(animation,3s);
+}
+.anim-delay.active .node{
+  @include animationFun(name,bounce)
+}
+
+.delay-1{
+  @include animationFun(delay,.2s)
+}
+
+.delay-2{
+  @include animationFun(delay,.5s)
+}
+
+.delay-3{
+  @include animationFun(delay,1s)
+}
+
+.delay-4{
+  @include animationFun(delay,2s)
+}
+
+.delay-5{
+  @include animationFun(delay,3s)
+}
+
+.anim-timeFunc .timeFunc-in :first-child,
+.anim-timeFunc .timeFunc-out :first-child,
+.anim-timeFunc .timeFunc-in-out :first-child{
+  margin-top:14px;
+}
+.anim-timeFunc .timeFunc-bzr span:first-child{
+  margin-top: 5px;
+}
+.anim-timeFunc.active .node{
+    @include animationFun(name,rotateOut)
+  }
+.timeFunc-ease{
+  @include animationFun(timing-function,ease)
+}
+.timeFunc-in{
+  @include animationFun(timing-function,ease-in)
+}
+.timeFunc-out{
+  @include animationFun(timing-function,ease-out)
+}
+.timeFunc-in-out{
+  @include animationFun(timing-function,ease-in-out)
+}
+.timeFunc-linear{
+  @include animationFun(timing-function,linear)
+}
+.timeFunc-bzr{
+  @include animationFun(timing-function,cubic-bezier(0.2,0.6,0.8,0.4))
+}
+
+.anim-direction .node{
+  height: 40px;
+  line-height: 40px;
+  @include animationFun(iteration-count,4)
+
+}
+.anim-direction .node.active{
+  @include animationFun(name,rotateOut)
+}
+
+.direction-narmal{
+  @include animationFun(direction,normal)
+}
+
+.direction-reverse{
+  @include animationFun(direction,reverse)
+}
+
+.direction-alternate{
+  @include animationFun(direction,alternate)
+}
+
+.direction-alternate-reverse{
+  @include animationFun(direction,alternate-reverse)
+}
+
+.anim-play-state .pulse{
+  @include duration(animation,5s);
+  @include animationFun(iteration-count,10);
+
+}
+.btn-click.play + .pulse{
+  @include animationFun(name,slide)
+}
+.btn-click.changed + .pulse{
+  @include animationFun(play-state,paused)
+}
+
+.anim-fill-mode .node{
+  display: block;
+}
+.anim-fill-mode.active .node{
+  @include animationFun(name,slide2)
+}
+.mode-forwards{
+  @include animationFun(fill-mode,forwards)
+}
+.mode-backwards{
+  @include animationFun(fill-mode,backwards)
+}
+.mode-both{
+  @include animationFun(fill-mode,both)
+}
+
+.event .node {
+  cursor: default;
+  position: relative;
+  display: inline-block;
+  @if $lte7 {
+    *display: inline;*zoom:1;
+  }
+  margin: 20px 30px;
+  width: 80px;
+  height: 80px;
+  text-align: center;
+  font-size: 11px;
+  line-height: 80px;
+
+}
+.event .cont-text{
+  display: inline-block;
+  @if $lte7 {
+    *display: inline;*zoom:1;
+  }
+}
+.event .cont-text p{
+  line-height:20px;
+  text-align: left;
+  color: $theme;
+  font-size: 12px;
+}
+.btn-click.changed + #animBox{
+  @include animationFun(name,rotate);
+  @include duration(animation,2s);
+  @include animationFun(timing-function,linear);
+  @include animationFun(iteration-count,3);
+  @include animationFun(delay,1s);
+  @include animationFun(direction,normal);
+}
