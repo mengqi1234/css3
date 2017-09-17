@@ -9,7 +9,7 @@ NW.support = {
 };
 NW.event = (function(){
     return {
-        start : 'MSPointerDown' in window ? 'MSPointerDown' : NW.support.isMobile ? 'touchstart' : 'mouseover',
+        start : 'MSPointerDown' in window ? 'MSPointerDown' : NW.support.isMobile ? 'touchstart' : 'mousedown',
         move : 'MSPointerDown' in window ? 'MSPointerMove' : NW.support.isMobile ? 'touchmove' : 'mousemove',
         end : 'MSPointerDown' in window ? 'MSPointerUp' : NW.support.isMobile ? 'touchend' : 'mouseup',
         animationEnd : NW.support.isIE10 ? 'animationend' : 'webkitAnimationEnd'
