@@ -24,17 +24,20 @@
             var touch = {};
             //触摸/点击事件
             $("body").on(NW.event.start, "a,.touch", function(event){
+                event.preventDefault();
                 var originalEvent = event.originalEvent;
                 touch.x1 = originalEvent.touches && originalEvent.touches[0] ? originalEvent.touches[0].pageX : event.pageX;
                 touch.y1 = originalEvent.touches && originalEvent.touches[0] ? originalEvent.touches[0].pageY : event.pageY;
                 $(this).addClass("active")
             }).on(NW.event.move, "a,.touch", function(event){
+                    event.preventDefault();
                     var originalEvent = event.originalEvent;
                     touch.x2 = originalEvent.touches && originalEvent.touches[0] ? originalEvent.touches[0].pageX : event.pageX;
                     touch.y2 = originalEvent.touches && originalEvent.touches[0] ? originalEvent.touches[0].pageY : event.pageY;
                     event.preventDefault();
                    $(this).removeClass("active")
                 }).on(NW.event.end, "a,.touch", function(event){
+                    event.preventDefault();
                     var originalEvent = event.originalEvent;
                     event.preventDefault();
                     $(this).removeClass("active")
